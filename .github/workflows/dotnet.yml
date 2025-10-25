@@ -37,7 +37,7 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-          docker build -t chivinh04/demo-hub:latest
+          docker build -t chivinh04/demo-hub:latest .
     
     - name: Push Docker image
       run: |
