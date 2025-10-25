@@ -37,8 +37,14 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-          docker build -t chivinh04/demo-hub:latest
+          docker build -t chivinh04/demo-hub:latest .
     
     - name: Push Docker image
       run: |
           docker push chivinh04/demo-hub:latest
+
+    - name: Trigger Render Deploy
+      run:  |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            https://api.render.com/v1/services/srv-d3uiiiuuk2gs73dtie20/deploys
